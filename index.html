@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moises Macias — Portfolio</title>
@@ -14,343 +13,197 @@
   --pb-xlight: #EBF2FA;
   --ink: #111318;
   --mid: #4a4a4a;
-  --muted: #999;
+  --muted: #888;
   --border: #dde3ec;
   --bg: #F2F5FA;
   --white: #fff;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Helvetica Neue',Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;}
 
-/* HEADER */
-header {
-  background: var(--pb-deep);
-  padding: 0 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 66px;
-  position: sticky; top:0; z-index:100;
-  box-shadow: 0 2px 20px rgba(26,47,80,0.45);
-}
-.logo { font-size:1rem; font-weight:800; letter-spacing:3px; text-transform:uppercase; color:var(--white); }
-.logo span { color:var(--pb-light); }
-.social-icons { display:flex; gap:0.6rem; align-items:center; }
-.social-icons a {
-  width:34px; height:34px;
-  border:1px solid rgba(255,255,255,0.18);
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  transition:all 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-.social-icons a:hover { background:var(--pb); border-color:var(--pb); transform:translateY(-1px); box-shadow:0 4px 12px rgba(74,111,165,0.5); }
-.social-icons svg { width:15px; height:15px; fill:rgba(255,255,255,0.8); }
+/* ── HEADER ── */
+header{background:var(--pb-deep);padding:0 4rem;display:flex;justify-content:space-between;align-items:center;height:66px;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(26,47,80,0.45);}
+.logo{font-size:1rem;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--white);}
+.logo span{color:var(--pb-light);}
+.social-icons{display:flex;gap:0.6rem;align-items:center;}
+.social-icons a{width:34px;height:34px;border:1px solid rgba(255,255,255,0.18);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.social-icons a:hover{background:var(--pb);border-color:var(--pb);transform:translateY(-1px);box-shadow:0 4px 12px rgba(74,111,165,0.5);}
+.social-icons svg{width:15px;height:15px;fill:rgba(255,255,255,0.8);}
 
-/* NAV */
-nav {
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 0 4rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 12px rgba(74,111,165,0.08);
-}
-.nav-links { display:flex; }
-nav a {
-  text-decoration:none; font-size:0.72rem; letter-spacing:1.2px;
-  text-transform:uppercase; color:var(--muted);
-  padding:1.1rem 1.2rem; border-bottom:2px solid transparent;
-  transition:color 0.2s, border-color 0.2s;
-}
-nav a.active, nav a:hover { color:var(--pb); border-bottom-color:var(--pb); }
-.nav-badge { font-size:0.65rem; background:var(--pb-xlight); color:var(--pb); padding:0.25rem 0.7rem; border-radius:2px; letter-spacing:0.5px; }
+/* ── NAV ── */
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 4rem;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 12px rgba(74,111,165,0.08);}
+.nav-links{display:flex;}
+nav a{text-decoration:none;font-size:0.72rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);padding:1.1rem 1.1rem;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;}
+nav a.active,nav a:hover{color:var(--pb);border-bottom-color:var(--pb);}
+.nav-badge{font-size:0.62rem;background:var(--pb-xlight);color:var(--pb);padding:0.25rem 0.7rem;border-radius:2px;letter-spacing:0.4px;white-space:nowrap;}
 
-/* SECTIONS */
-section { display:none; }
-section.active { display:block; }
+/* ── SECTIONS ── */
+section{display:none;}
+section.active{display:block;}
 
-/* HERO */
-.hero {
-  background: var(--pb-deep);
-  padding: 5rem 4rem 4.5rem;
-  position:relative; overflow:hidden;
-}
-.geo-block {
-  position:absolute; right:0; top:0;
-  width:45%; height:100%;
-  background: linear-gradient(135deg, var(--pb) 0%, var(--pb-dark) 100%);
-  clip-path: polygon(22% 0, 100% 0, 100% 100%, 0% 100%);
-  opacity:0.4;
-}
-.geo-circle {
-  position:absolute; right:120px; bottom:-60px;
-  width:240px; height:240px;
-  border:2px solid rgba(200,218,234,0.2);
-  border-radius:50%;
-  box-shadow: inset 0 0 40px rgba(74,111,165,0.15);
-}
-.geo-line1 { position:absolute; right:280px; top:40px; width:100px; height:2px; background:var(--pb-light); opacity:0.25; }
-.geo-line2 { position:absolute; right:260px; top:50px; width:60px; height:2px; background:var(--pb-light); opacity:0.15; }
-.geo-dot { position:absolute; right:200px; top:80px; width:8px; height:8px; border-radius:50%; background:var(--pb-light); opacity:0.3; }
-.hero-content { position:relative; z-index:2; max-width:580px; }
-.hero-eyebrow { font-size:0.68rem; letter-spacing:3px; text-transform:uppercase; color:var(--pb-light); margin-bottom:1rem; opacity:0.8; }
-.hero h1 { font-size:3.4rem; font-weight:800; color:var(--white); letter-spacing:-1px; line-height:1.05; margin-bottom:1.2rem; }
-.hero h1 span { color:var(--pb-light); }
-.hero p { font-size:0.92rem; color:rgba(255,255,255,0.55); line-height:1.8; max-width:460px; margin-bottom:2rem; }
-.hero-actions { display:flex; gap:0.75rem; flex-wrap:wrap; }
-.btn-outline {
-  display:inline-block; text-decoration:none; font-size:0.72rem;
-  letter-spacing:1px; text-transform:uppercase; color:var(--white);
-  border:1px solid rgba(255,255,255,0.25); padding:0.6rem 1.3rem;
-  border-radius:2px; transition:all 0.2s;
-}
-.btn-outline:hover { background:var(--pb); border-color:var(--pb); box-shadow:0 4px 16px rgba(74,111,165,0.4); }
-.btn-solid {
-  display:inline-block; text-decoration:none; font-size:0.72rem;
-  letter-spacing:1px; text-transform:uppercase; color:var(--white);
-  background:var(--pb); border:1px solid var(--pb); padding:0.6rem 1.3rem;
-  border-radius:2px; transition:all 0.2s;
-  box-shadow: 0 4px 14px rgba(74,111,165,0.35);
-}
-.btn-solid:hover { background:var(--pb-dark); border-color:var(--pb-dark); box-shadow:0 6px 20px rgba(44,74,114,0.5); }
+/* ── HERO ── */
+.hero{background:var(--pb-deep);padding:5rem 4rem 4.5rem;position:relative;overflow:hidden;}
+.geo-block{position:absolute;right:0;top:0;width:45%;height:100%;background:linear-gradient(135deg,var(--pb) 0%,var(--pb-dark) 100%);clip-path:polygon(22% 0,100% 0,100% 100%,0% 100%);opacity:0.4;}
+.geo-circle{position:absolute;right:120px;bottom:-60px;width:240px;height:240px;border:2px solid rgba(200,218,234,0.2);border-radius:50%;box-shadow:inset 0 0 40px rgba(74,111,165,0.15);}
+.geo-line1{position:absolute;right:280px;top:40px;width:100px;height:2px;background:var(--pb-light);opacity:0.25;}
+.geo-line2{position:absolute;right:260px;top:52px;width:60px;height:2px;background:var(--pb-light);opacity:0.15;}
+.geo-dot{position:absolute;right:200px;top:82px;width:8px;height:8px;border-radius:50%;background:var(--pb-light);opacity:0.3;}
+.hero-content{position:relative;z-index:2;max-width:580px;}
+.hero-eyebrow{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--pb-light);margin-bottom:1rem;opacity:0.8;}
+.hero h1{font-size:3.4rem;font-weight:800;color:var(--white);letter-spacing:-1px;line-height:1.05;margin-bottom:1.2rem;}
+.hero h1 span{color:var(--pb-light);}
+.hero p{font-size:0.92rem;color:rgba(255,255,255,0.55);line-height:1.8;max-width:460px;margin-bottom:2rem;}
+.hero-actions{display:flex;gap:0.75rem;flex-wrap:wrap;}
+.btn-solid{display:inline-block;text-decoration:none;font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--white);background:var(--pb);border:1px solid var(--pb);padding:0.6rem 1.3rem;border-radius:2px;transition:all 0.2s;box-shadow:0 4px 14px rgba(74,111,165,0.35);}
+.btn-solid:hover{background:var(--pb-dark);border-color:var(--pb-dark);box-shadow:0 6px 20px rgba(44,74,114,0.5);}
+.btn-outline{display:inline-block;text-decoration:none;font-size:0.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--white);border:1px solid rgba(255,255,255,0.25);padding:0.6rem 1.3rem;border-radius:2px;transition:all 0.2s;}
+.btn-outline:hover{background:var(--pb);border-color:var(--pb);box-shadow:0 4px 16px rgba(74,111,165,0.4);}
 
-/* SKILLS STRIP */
-.skills-strip {
-  background: var(--pb);
-  padding: 1rem 4rem;
-  display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;
-  box-shadow: 0 4px 16px rgba(74,111,165,0.25);
-}
-.skills-strip span {
-  font-size:0.68rem; letter-spacing:0.8px; text-transform:uppercase;
-  color:rgba(255,255,255,0.85); padding:0.2rem 0.8rem;
-  border:1px solid rgba(255,255,255,0.2); border-radius:2px;
-}
+/* ── HERO MINI (inner pages) ── */
+.hero-mini{background:var(--pb-deep);padding:3rem 4rem 2.5rem;position:relative;overflow:hidden;}
+.hero-mini .hero-content h1{font-size:2.4rem;}
 
-/* ABOUT SECTION */
-.about-wrapper { padding: 4rem; }
-.section-banner {
-  background: var(--pb-deep);
-  border-radius:4px;
-  padding: 2rem 2.5rem;
-  margin-bottom: 3rem;
-  position:relative; overflow:hidden;
-  box-shadow: 0 8px 32px rgba(26,47,80,0.25);
-}
-.sb-geo { position:absolute; right:0; top:0; bottom:0; width:30%; background:var(--pb); opacity:0.25; clip-path:polygon(20% 0,100% 0,100% 100%,0 100%); }
-.sb-line { position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--pb-light); }
-.section-banner h2 { font-size:1.6rem; font-weight:800; color:var(--white); position:relative; z-index:2; }
-.section-banner p { font-size:0.82rem; color:rgba(255,255,255,0.55); margin-top:0.3rem; letter-spacing:0.5px; text-transform:uppercase; position:relative; z-index:2; }
+/* ── SKILLS STRIP ── */
+.skills-strip{background:var(--pb);padding:1rem 4rem;display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;box-shadow:0 4px 16px rgba(74,111,165,0.25);}
+.skills-strip span{font-size:0.65rem;letter-spacing:0.8px;text-transform:uppercase;color:rgba(255,255,255,0.85);padding:0.2rem 0.75rem;border:1px solid rgba(255,255,255,0.2);border-radius:2px;}
 
-.about-grid { display:grid; grid-template-columns:1.5fr 1fr; gap:2.5rem; align-items:start; }
+/* ── SECTION BANNER ── */
+.section-banner{background:var(--pb-deep);border-radius:4px;padding:1.8rem 2.2rem;margin-bottom:2.5rem;position:relative;overflow:hidden;box-shadow:0 6px 24px rgba(26,47,80,0.22);}
+.sb-geo{position:absolute;right:0;top:0;bottom:0;width:30%;background:var(--pb);opacity:0.25;clip-path:polygon(20% 0,100% 0,100% 100%,0 100%);}
+.sb-line{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--pb-light);}
+.section-banner h2{font-size:1.5rem;font-weight:800;color:var(--white);position:relative;z-index:2;}
+.section-banner p{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:0.2rem;letter-spacing:0.5px;text-transform:uppercase;position:relative;z-index:2;}
 
-.about-card {
-  background:var(--white);
-  border-radius:4px;
-  padding:2rem 2.2rem;
-  border:1px solid var(--border);
-  box-shadow: 0 4px 20px rgba(74,111,165,0.08), 0 1px 4px rgba(0,0,0,0.04);
-}
-.about-card h3 { font-size:0.65rem; text-transform:uppercase; letter-spacing:1.8px; color:var(--pb); margin-bottom:1rem; padding-bottom:0.6rem; border-bottom:1px solid var(--border); }
-.about-card p { font-size:0.9rem; color:var(--mid); line-height:1.8; margin-bottom:0.8rem; }
+/* ── ABOUT ── */
+.about-wrapper{padding:3.5rem 4rem;}
+.about-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:2rem;align-items:start;}
+.about-card{background:var(--white);border-radius:4px;padding:2rem 2.2rem;border:1px solid var(--border);box-shadow:0 4px 20px rgba(74,111,165,0.08);}
+.about-card h3{font-size:0.62rem;text-transform:uppercase;letter-spacing:1.8px;color:var(--pb);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+.about-card p{font-size:0.88rem;color:var(--mid);line-height:1.8;margin-bottom:0.85rem;}
+.about-card p:last-of-type{margin-bottom:0;}
+.skills-cloud{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.2rem;}
+.s-tag{font-size:0.68rem;background:var(--pb-xlight);color:var(--pb);padding:0.28rem 0.75rem;border-radius:2px;letter-spacing:0.3px;}
+.info-stack{display:flex;flex-direction:column;gap:1rem;}
+.info-card{background:var(--white);border-radius:4px;padding:1.2rem 1.4rem;border:1px solid var(--border);border-left:3px solid var(--pb);box-shadow:0 2px 12px rgba(74,111,165,0.07);}
+.info-card h4{font-size:0.6rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--pb);margin-bottom:0.4rem;}
+.info-card p,.info-card a{font-size:0.84rem;color:var(--mid);display:block;text-decoration:none;line-height:1.6;}
+.info-card a:hover{color:var(--pb);}
 
-.skills-cloud { display:flex; flex-wrap:wrap; gap:0.4rem; }
-.s-tag { font-size:0.7rem; background:var(--pb-xlight); color:var(--pb); padding:0.28rem 0.75rem; border-radius:2px; letter-spacing:0.3px; }
+/* ── PORTFOLIO ── */
+.portfolio-wrapper{padding:3.5rem 4rem;}
+.filter-bar{display:flex;gap:0.5rem;margin-bottom:2.5rem;flex-wrap:wrap;}
+.f-btn{font-size:0.68rem;letter-spacing:0.8px;text-transform:uppercase;padding:0.45rem 1.1rem;border:1px solid var(--border);background:var(--white);border-radius:2px;cursor:pointer;color:var(--muted);transition:all 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
+.f-btn.active,.f-btn:hover{background:var(--pb);color:var(--white);border-color:var(--pb);box-shadow:0 4px 12px rgba(74,111,165,0.3);}
+.ph-note{background:var(--pb-xlight);border-left:3px solid var(--pb);padding:0.85rem 1.2rem;font-size:0.78rem;color:var(--pb);margin-bottom:2rem;border-radius:0 2px 2px 0;}
 
-.info-stack { display:flex; flex-direction:column; gap:1rem; }
-.info-card {
-  background:var(--white);
-  border-radius:4px;
-  padding:1.2rem 1.5rem;
-  border:1px solid var(--border);
-  border-left:3px solid var(--pb);
-  box-shadow: 0 2px 12px rgba(74,111,165,0.07);
-}
-.info-card h4 { font-size:0.62rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--pb); margin-bottom:0.4rem; }
-.info-card p, .info-card a { font-size:0.85rem; color:var(--mid); display:block; text-decoration:none; line-height:1.6; }
-.info-card a:hover { color:var(--pb); }
+/* VIDEO FEATURE */
+.video-feature-card{background:var(--white);border-radius:4px;border:1px solid var(--border);overflow:hidden;margin-bottom:2rem;box-shadow:0 6px 24px rgba(74,111,165,0.12);}
+.video-embed{position:relative;padding-bottom:56.25%;height:0;}
+.video-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
+.video-feature-info{padding:1.1rem 1.4rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,var(--pb-xlight) 0%,var(--white) 100%);}
+.video-feature-info h3{font-size:0.88rem;font-weight:600;}
+.video-feature-info p{font-size:0.75rem;color:var(--muted);margin-top:0.1rem;}
+.vf-badge{font-size:0.62rem;letter-spacing:0.8px;text-transform:uppercase;background:var(--pb);color:var(--white);padding:0.28rem 0.75rem;border-radius:2px;white-space:nowrap;margin-left:1rem;}
 
-/* PORTFOLIO SECTION */
-.portfolio-wrapper { padding: 4rem; }
-.filter-bar { display:flex; gap:0.5rem; margin-bottom:2.5rem; flex-wrap:wrap; }
-.f-btn {
-  font-size:0.68rem; letter-spacing:0.8px; text-transform:uppercase;
-  padding:0.45rem 1.1rem; border:1px solid var(--border);
-  background:var(--white); border-radius:2px; cursor:pointer;
-  color:var(--muted); transition:all 0.2s;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-}
-.f-btn.active, .f-btn:hover { background:var(--pb); color:var(--white); border-color:var(--pb); box-shadow:0 4px 12px rgba(74,111,165,0.3); }
+/* MASONRY */
+.masonry{columns:3;column-gap:1.2rem;}
+.m-card{break-inside:avoid;background:var(--white);border-radius:4px;border:1px solid var(--border);overflow:hidden;margin-bottom:1.2rem;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 2px 12px rgba(74,111,165,0.07);}
+.m-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(74,111,165,0.18);}
+.m-thumb{width:100%;position:relative;display:flex;align-items:center;justify-content:center;}
+.m-thumb.tall{height:230px;}
+.m-thumb.med{height:175px;}
+.m-thumb.short{height:135px;}
+.m-thumb.dk1{background:linear-gradient(135deg,#0d1520 0%,#1a2f50 100%);}
+.m-thumb.dk2{background:linear-gradient(135deg,#111827 0%,#0f2035 100%);}
+.m-thumb.dk3{background:linear-gradient(135deg,#0a1628 0%,#1e3a5f 100%);}
+.m-thumb.dk4{background:linear-gradient(135deg,#12211a 0%,#0d2b1e 100%);}
+.m-thumb.lt1{background:linear-gradient(135deg,#eef2f8 0%,#dce7f3 100%);}
+.m-thumb.lt2{background:linear-gradient(135deg,#f5f3ef 0%,#ede8e0 100%);}
+.m-thumb.lt3{background:linear-gradient(135deg,#f0f4fb 0%,#e0eaf8 100%);}
+.m-thumb.lt4{background:linear-gradient(135deg,#f5f0fb 0%,#ede0f8 100%);}
+.geo-thumb-line{position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--pb);opacity:0.6;}
+.geo-thumb-corner{position:absolute;top:10px;left:10px;width:22px;height:22px;border-top:2px solid rgba(255,255,255,0.2);border-left:2px solid rgba(255,255,255,0.2);}
+.geo-thumb-corner.dark{border-color:rgba(74,111,165,0.3);}
+.play-ring{width:46px;height:46px;border:1.5px solid rgba(255,255,255,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(255,255,255,0.05);}
+.play-ring::after{content:'';width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:13px solid rgba(255,255,255,0.75);margin-left:4px;}
+.m-type{position:absolute;top:10px;right:10px;font-size:0.58rem;letter-spacing:0.8px;text-transform:uppercase;padding:0.18rem 0.5rem;border-radius:2px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);}
+.m-type.on-lt{background:var(--pb-xlight);color:var(--pb);}
+.m-body{padding:0.85rem 1rem 1rem;}
+.m-body h3{font-size:0.82rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;}
+.m-body p{font-size:0.73rem;color:var(--muted);line-height:1.5;}
+.m-client{font-size:0.66rem;color:var(--pb);margin-top:0.4rem;}
 
-/* MASONRY GRID */
-.masonry {
-  columns: 3;
-  column-gap: 1.25rem;
-}
-.m-card {
-  break-inside: avoid;
-  background:var(--white);
-  border-radius:4px;
-  border:1px solid var(--border);
-  overflow:hidden;
-  margin-bottom:1.25rem;
-  transition:transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 12px rgba(74,111,165,0.07);
-}
-.m-card:hover {
-  transform:translateY(-3px);
-  box-shadow: 0 10px 32px rgba(74,111,165,0.18);
-}
-.m-thumb {
-  width:100%; position:relative;
-  display:flex; align-items:center; justify-content:center;
-}
-.m-thumb.tall { height:240px; }
-.m-thumb.med { height:180px; }
-.m-thumb.short { height:140px; }
-.m-thumb.wide-video { height:200px; }
+/* ── EXPERIENCE ── */
+.exp-wrapper{padding:3.5rem 4rem;}
+.exp-timeline{position:relative;padding-left:2rem;border-left:2px solid var(--pb-light);}
+.exp-item{position:relative;margin-bottom:2.2rem;padding-left:1.8rem;}
+.exp-item::before{content:'';position:absolute;left:-2.4rem;top:8px;width:10px;height:10px;border-radius:50%;background:var(--pb);border:2px solid var(--white);box-shadow:0 0 0 3px var(--pb-light);}
+.exp-card{background:var(--white);border-radius:4px;border:1px solid var(--border);overflow:hidden;box-shadow:0 3px 16px rgba(74,111,165,0.08);transition:box-shadow 0.2s;}
+.exp-card:hover{box-shadow:0 6px 28px rgba(74,111,165,0.15);}
+.exp-card-header{background:linear-gradient(90deg,var(--pb-deep) 0%,var(--pb-dark) 100%);padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;position:relative;overflow:hidden;}
+.exp-card-header::after{content:'';position:absolute;right:0;top:0;bottom:0;width:50px;background:rgba(255,255,255,0.04);clip-path:polygon(30% 0,100% 0,100% 100%,0 100%);}
+.exp-card-header h3{font-size:0.9rem;font-weight:700;color:var(--white);}
+.exp-card-header .company{font-size:0.72rem;color:var(--pb-light);margin-top:0.15rem;opacity:0.85;}
+.exp-dates{font-size:0.65rem;color:rgba(255,255,255,0.4);letter-spacing:0.4px;white-space:nowrap;flex-shrink:0;padding-top:0.15rem;}
+.exp-card-body{padding:1.2rem 1.5rem;}
+.exp-card-body p{font-size:0.83rem;color:var(--mid);line-height:1.75;margin-bottom:0.8rem;}
+.exp-card-body ul{list-style:none;}
+.exp-card-body ul li{font-size:0.8rem;color:var(--mid);padding:0.25rem 0 0.25rem 1rem;border-left:2px solid var(--pb-light);margin-bottom:0.35rem;line-height:1.55;}
+.exp-card-body ul li strong{color:var(--ink);font-weight:600;}
 
-.m-thumb.dk1 { background: linear-gradient(135deg, #0d1520 0%, #1a2f50 100%); }
-.m-thumb.dk2 { background: linear-gradient(135deg, #111827 0%, #0f2035 100%); }
-.m-thumb.dk3 { background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%); }
-.m-thumb.dk4 { background: linear-gradient(135deg, #12211a 0%, #0d2b1e 100%); }
-.m-thumb.lt1 { background: linear-gradient(135deg, #eef2f8 0%, #dce7f3 100%); }
-.m-thumb.lt2 { background: linear-gradient(135deg, #f5f3ef 0%, #ede8e0 100%); }
-.m-thumb.lt3 { background: linear-gradient(135deg, #f0f4fb 0%, #e0eaf8 100%); }
-.m-thumb.lt4 { background: linear-gradient(135deg, #f5f0fb 0%, #ede0f8 100%); }
+/* ── CONTACT ── */
+.contact-wrapper{padding:3.5rem 4rem;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+.c-card{background:var(--white);border-radius:4px;padding:1.75rem;border:1px solid var(--border);box-shadow:0 3px 16px rgba(74,111,165,0.08);}
+.c-card h3{font-size:0.62rem;text-transform:uppercase;letter-spacing:1.8px;color:var(--pb);margin-bottom:1.2rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+.c-card a,.c-card p{display:block;font-size:0.88rem;color:var(--mid);text-decoration:none;margin-bottom:0.6rem;line-height:1.6;}
+.c-card a:hover{color:var(--pb);}
+.avail{display:inline-block;background:var(--pb-xlight);color:var(--pb);font-size:0.7rem;letter-spacing:0.5px;padding:0.3rem 0.85rem;border-radius:2px;margin-top:0.5rem;}
 
-.geo-thumb-line { position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--pb); opacity:0.6; }
-.geo-thumb-corner { position:absolute; top:12px; left:12px; width:24px; height:24px; border-top:2px solid rgba(255,255,255,0.2); border-left:2px solid rgba(255,255,255,0.2); }
-.geo-thumb-corner.dark { border-color:rgba(74,111,165,0.3); }
-
-.play-ring {
-  width:48px; height:48px;
-  border:1.5px solid rgba(255,255,255,0.3);
-  border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  box-shadow: 0 0 0 8px rgba(255,255,255,0.05);
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .masonry{columns:2;}
+  .about-grid{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr;}
 }
-.play-ring::after {
-  content:''; width:0; height:0;
-  border-top:8px solid transparent; border-bottom:8px solid transparent;
-  border-left:14px solid rgba(255,255,255,0.75);
-  margin-left:4px;
+@media(max-width:768px){
+  header{padding:0 1.5rem;}
+  .logo{font-size:0.85rem;letter-spacing:2px;}
+  nav{padding:0 1.5rem;flex-wrap:wrap;}
+  .nav-badge{display:none;}
+  nav a{padding:0.9rem 0.7rem;font-size:0.65rem;}
+  .hero{padding:3rem 1.5rem 3rem;}
+  .hero h1{font-size:2.2rem;}
+  .hero-mini{padding:2rem 1.5rem 2rem;}
+  .hero-mini .hero-content h1{font-size:1.8rem;}
+  .geo-block{opacity:0.2;}
+  .geo-circle{display:none;}
+  .skills-strip{padding:0.75rem 1.5rem;}
+  .about-wrapper,.portfolio-wrapper,.exp-wrapper,.contact-wrapper{padding:2rem 1.5rem;}
+  .section-banner{padding:1.4rem 1.5rem;}
+  .section-banner h2{font-size:1.2rem;}
+  .about-card{padding:1.5rem;}
+  .masonry{columns:1;}
+  .exp-timeline{padding-left:1rem;}
+  .exp-item{padding-left:1.2rem;}
+  .exp-item::before{left:-1.45rem;}
+  .exp-card-header{flex-direction:column;gap:0.4rem;}
+  .exp-dates{font-size:0.62rem;}
+  .exp-card-body{padding:1rem 1.1rem;}
+  .video-feature-info{flex-direction:column;align-items:flex-start;gap:0.5rem;}
+  .filter-bar{gap:0.4rem;}
+  .hero-actions{flex-direction:column;align-items:flex-start;}
 }
-
-.m-type {
-  position:absolute; top:10px; right:10px;
-  font-size:0.6rem; letter-spacing:0.8px; text-transform:uppercase;
-  padding:0.18rem 0.55rem; border-radius:2px;
-  background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.8);
-  backdrop-filter:blur(4px);
+@media(max-width:480px){
+  header{height:56px;}
+  .logo{font-size:0.78rem;}
+  .social-icons a{width:28px;height:28px;}
+  .social-icons svg{width:12px;height:12px;}
+  .hero h1{font-size:1.8rem;}
+  .hero p{font-size:0.85rem;}
+  .about-grid{gap:1rem;}
 }
-.m-type.on-lt { background:var(--pb-xlight); color:var(--pb); }
-
-.m-body { padding:0.9rem 1rem 1.1rem; }
-.m-body h3 { font-size:0.84rem; font-weight:600; color:var(--ink); margin-bottom:0.2rem; }
-.m-body p { font-size:0.75rem; color:var(--muted); line-height:1.5; }
-.m-client { font-size:0.68rem; color:var(--pb); margin-top:0.4rem; letter-spacing:0.2px; }
-
-/* VIDEO FEATURE CARD */
-.video-feature-card {
-  background:var(--white);
-  border-radius:4px;
-  border:1px solid var(--border);
-  overflow:hidden;
-  margin-bottom:2rem;
-  box-shadow: 0 6px 24px rgba(74,111,165,0.12);
-}
-.video-embed { position:relative; padding-bottom:56.25%; height:0; }
-.video-embed iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
-.video-feature-info {
-  padding:1.2rem 1.5rem;
-  border-top:1px solid var(--border);
-  display:flex; align-items:center; justify-content:space-between;
-  background: linear-gradient(90deg, var(--pb-xlight) 0%, var(--white) 100%);
-}
-.video-feature-info h3 { font-size:0.9rem; font-weight:600; }
-.video-feature-info p { font-size:0.78rem; color:var(--muted); margin-top:0.15rem; }
-.vf-badge { font-size:0.65rem; letter-spacing:0.8px; text-transform:uppercase; background:var(--pb); color:var(--white); padding:0.3rem 0.8rem; border-radius:2px; white-space:nowrap; }
-
-/* EXPERIENCE SECTION */
-.exp-wrapper { padding:4rem; }
-.exp-timeline { position:relative; padding-left:2rem; border-left:2px solid var(--pb-light); }
-.exp-item {
-  position:relative;
-  margin-bottom:2.5rem;
-  padding-left:2rem;
-}
-.exp-item::before {
-  content:''; position:absolute; left:-2.45rem; top:6px;
-  width:10px; height:10px; border-radius:50%;
-  background:var(--pb); border:2px solid var(--white);
-  box-shadow:0 0 0 3px var(--pb-light);
-}
-.exp-card {
-  background:var(--white);
-  border-radius:4px;
-  border:1px solid var(--border);
-  overflow:hidden;
-  box-shadow:0 3px 16px rgba(74,111,165,0.08);
-  transition:box-shadow 0.2s;
-}
-.exp-card:hover { box-shadow:0 6px 28px rgba(74,111,165,0.15); }
-.exp-card-header {
-  background: linear-gradient(90deg, var(--pb-deep) 0%, var(--pb-dark) 100%);
-  padding:1rem 1.5rem;
-  display:flex; justify-content:space-between; align-items:flex-start;
-  position:relative; overflow:hidden;
-}
-.exp-card-header::after {
-  content:''; position:absolute; right:0; top:0; bottom:0;
-  width:60px; background:rgba(255,255,255,0.04);
-  clip-path:polygon(30% 0,100% 0,100% 100%,0 100%);
-}
-.exp-card-header h3 { font-size:0.92rem; font-weight:700; color:var(--white); }
-.exp-card-header .company { font-size:0.75rem; color:var(--pb-light); margin-top:0.15rem; opacity:0.85; }
-.exp-dates { font-size:0.68rem; color:rgba(255,255,255,0.45); letter-spacing:0.5px; white-space:nowrap; margin-top:0.2rem; }
-.exp-card-body { padding:1.2rem 1.5rem; }
-.exp-card-body p { font-size:0.84rem; color:var(--mid); line-height:1.75; margin-bottom:0.75rem; }
-.exp-card-body ul { list-style:none; }
-.exp-card-body ul li {
-  font-size:0.8rem; color:var(--mid);
-  padding:0.25rem 0 0.25rem 1rem;
-  border-left:2px solid var(--pb-light);
-  margin-bottom:0.35rem; line-height:1.55;
-}
-.exp-card-body ul li strong { color:var(--ink); }
-
-/* CONTACT SECTION */
-.contact-wrapper { padding:4rem; }
-.contact-hero {
-  background:var(--pb-deep);
-  border-radius:4px;
-  padding:3rem;
-  margin-bottom:2rem;
-  position:relative; overflow:hidden;
-  box-shadow:0 8px 32px rgba(26,47,80,0.3);
-}
-.contact-hero .geo-block { position:absolute; right:0; top:0; bottom:0; width:35%; background:var(--pb); opacity:0.2; clip-path:polygon(20% 0,100% 0,100% 100%,0 100%); }
-.contact-hero .sb-line { position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--pb-light); }
-.contact-hero h2 { font-size:2rem; font-weight:800; color:var(--white); position:relative; z-index:2; margin-bottom:0.5rem; }
-.contact-hero p { font-size:0.88rem; color:rgba(255,255,255,0.5); position:relative; z-index:2; }
-.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
-.c-card {
-  background:var(--white);
-  border-radius:4px;
-  padding:1.75rem;
-  border:1px solid var(--border);
-  box-shadow:0 3px 16px rgba(74,111,165,0.08);
-}
-.c-card h3 { font-size:0.62rem; text-transform:uppercase; letter-spacing:1.8px; color:var(--pb); margin-bottom:1.2rem; padding-bottom:0.6rem; border-bottom:1px solid var(--border); }
-.c-card a, .c-card p { display:block; font-size:0.88rem; color:var(--mid); text-decoration:none; margin-bottom:0.65rem; line-height:1.6; }
-.c-card a:hover { color:var(--pb); }
-.avail { display:inline-block; background:var(--pb-xlight); color:var(--pb); font-size:0.7rem; letter-spacing:0.5px; padding:0.3rem 0.85rem; border-radius:2px; margin-top:0.5rem; }
-
-/* PLACEHOLDER */
-.ph-note { background:var(--pb-xlight); border-left:3px solid var(--pb); padding:0.85rem 1.2rem; font-size:0.78rem; color:var(--pb); margin-bottom:2rem; border-radius:0 2px 2px 0; }
 </style>
 </head>
 <body>
@@ -359,11 +212,9 @@ section.active { display:block; }
 <header>
   <div class="logo">Moises <span>Macias</span></div>
   <div class="social-icons">
-    <!-- LinkedIn -->
     <a href="https://www.linkedin.com/in/moisescomspecialist" target="_blank" title="LinkedIn">
       <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
     </a>
-    <!-- Instagram -->
     <a href="https://www.instagram.com/moisesmedia_" target="_blank" title="Instagram">
       <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
     </a>
@@ -378,21 +229,18 @@ section.active { display:block; }
     <a href="#" onclick="showSection('experience',this);return false;">Experience</a>
     <a href="#" onclick="showSection('contact',this);return false;">Contact</a>
   </div>
-  <span class="nav-badge">NZ Permanent Resident · Available May 2025</span>
+  <span class="nav-badge">NZ Permanent Resident · Open to Relocate</span>
 </nav>
 
-<!-- ABOUT -->
+<!-- ══════════════ ABOUT ══════════════ -->
 <section id="about" class="active">
   <div class="hero">
-    <div class="geo-block"></div>
-    <div class="geo-circle"></div>
-    <div class="geo-line1"></div>
-    <div class="geo-line2"></div>
-    <div class="geo-dot"></div>
+    <div class="geo-block"></div><div class="geo-circle"></div>
+    <div class="geo-line1"></div><div class="geo-line2"></div><div class="geo-dot"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Marketing · Communications · Audiovisual Production</p>
       <h1>Moises<br><span>Macias</span></h1>
-      <p>Creative professional with 10+ years of international experience across brand strategy, audiovisual production, event coordination, and content creation in Mexico and New Zealand.</p>
+      <p>Creative professional with 10+ years of international experience across brand strategy, audiovisual production, event operations, and content creation.</p>
       <div class="hero-actions">
         <a href="#" class="btn-solid" onclick="showSection('portfolio',document.querySelectorAll('nav a')[1]);return false;">View Portfolio</a>
         <a href="#" class="btn-outline" onclick="showSection('contact',document.querySelectorAll('nav a')[3]);return false;">Get in Touch</a>
@@ -404,40 +252,51 @@ section.active { display:block; }
     <span>Premiere Pro</span><span>After Effects</span><span>Photoshop</span>
     <span>Illustrator</span><span>Canva</span><span>CapCut</span>
     <span>YouTube Ads</span><span>Google Ads</span><span>TV & Radio</span>
-    <span>Event Coordination</span><span>Brand Strategy</span><span>Bilingual ES/EN</span>
+    <span>Event Operations</span><span>Brand Strategy</span><span>Bilingual ES/EN</span>
   </div>
 
   <div class="about-wrapper">
     <div class="section-banner">
-      <div class="sb-geo"></div>
-      <div class="sb-line"></div>
+      <div class="sb-geo"></div><div class="sb-line"></div>
       <h2>About me</h2>
       <p>Creative · Strategic · Multi-disciplinary</p>
     </div>
-
     <div class="about-grid">
       <div class="about-card">
         <h3>Background</h3>
-        <p>My career spans television and radio production, large-scale live event management, full promotional campaign design, and hands-on digital content creation — a rare combination of strategic thinking and technical execution across both traditional and digital media.</p>
-        <p>From producing broadcast commercials at Telecable and coordinating large concerts at OCESA in Mexico, to creating social media content and brand campaigns at Harcourts Cooper & Co in Auckland — I bring a versatile, international perspective to every project.</p>
-        <p>Currently based in Blenheim, Marlborough, returning to Auckland in May 2025. NZ Permanent Resident with full working rights.</p>
-        <div class="skills-cloud" style="margin-top:1.2rem;">
+        <p>My career spans television and radio production, large-scale live event operations, full promotional campaign design, and hands-on digital content creation — a rare combination of strategic thinking and technical execution across both traditional and digital media.</p>
+        <p>From producing broadcast commercials and supporting large-scale concert operations in Mexico — including full campaign management across TV, radio, print, digital, and point-of-sale — to creating content and building brand presence at the community level in New Zealand, I bring a versatile mix of creative strategy and hands-on execution.</p>
+        <p>Based in New Zealand and open to opportunities nationwide — bringing an international perspective and a track record of delivering across both creative and operational environments.</p>
+        <div class="skills-cloud">
           <span class="s-tag">Adobe Premiere Pro</span><span class="s-tag">After Effects</span>
           <span class="s-tag">Photoshop</span><span class="s-tag">Illustrator</span>
           <span class="s-tag">Canva</span><span class="s-tag">CapCut</span>
-          <span class="s-tag">Lightroom</span><span class="s-tag">CapCut</span>
-          <span class="s-tag">YouTube Ads</span><span class="s-tag">Google Ads</span>
-          <span class="s-tag">TV & Radio production</span><span class="s-tag">Script writing</span>
-          <span class="s-tag">Event coordination</span><span class="s-tag">Brand strategy</span>
-          <span class="s-tag">Traditional media</span><span class="s-tag">Social media content</span>
-          <span class="s-tag">Bilingual ES / EN</span>
+          <span class="s-tag">Lightroom</span><span class="s-tag">YouTube Ads</span>
+          <span class="s-tag">Google Ads</span><span class="s-tag">TV & Radio production</span>
+          <span class="s-tag">Script writing</span><span class="s-tag">Event operations</span>
+          <span class="s-tag">Brand strategy</span><span class="s-tag">Traditional media</span>
+          <span class="s-tag">Social media content</span><span class="s-tag">Bilingual ES / EN</span>
         </div>
       </div>
       <div class="info-stack">
-        <div class="info-card"><h4>Location</h4><p>Blenheim, Marlborough</p><p>Returning to Auckland — May 2025</p></div>
-        <div class="info-card"><h4>Languages</h4><p>Spanish — native</p><p>English — professional working level</p></div>
-        <div class="info-card"><h4>Education</h4><p>Digital Marketing & E-commerce Diploma, 2025</p><p>Bachelor's in Communication Sciences, 2006–2009</p><p>Event Organisation — Brandhome, 2009</p></div>
-        <div class="info-card"><h4>Connect</h4>
+        <div class="info-card">
+          <h4>Location</h4>
+          <p>South Island, New Zealand</p>
+          <p>Open to opportunities nationwide, with flexibility to relocate as needed.</p>
+        </div>
+        <div class="info-card">
+          <h4>Languages</h4>
+          <p>Spanish — native</p>
+          <p>English — professional working level</p>
+        </div>
+        <div class="info-card">
+          <h4>Education</h4>
+          <p>Digital Marketing & E-commerce Diploma, 2025</p>
+          <p>Bachelor's in Communication Sciences, 2006–2009</p>
+          <p>Event Organisation — Brandhome, 2009</p>
+        </div>
+        <div class="info-card">
+          <h4>Connect</h4>
           <a href="https://www.linkedin.com/in/moisescomspecialist" target="_blank">LinkedIn</a>
           <a href="https://www.instagram.com/moisesmedia_" target="_blank">Instagram @moisesmedia_</a>
           <a href="https://www.youtube.com/watch?v=8AWqPpxKdP4" target="_blank">Video Reel — YouTube</a>
@@ -447,28 +306,22 @@ section.active { display:block; }
   </div>
 </section>
 
-<!-- PORTFOLIO -->
+<!-- ══════════════ PORTFOLIO ══════════════ -->
 <section id="portfolio">
-  <div class="hero" style="padding:3rem 4rem 2.5rem;">
-    <div class="geo-block"></div>
-    <div class="geo-circle"></div>
-    <div class="geo-line1"></div>
+  <div class="hero-mini">
+    <div class="geo-block"></div><div class="geo-circle"></div><div class="geo-line1"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Selected work</p>
-      <h1 style="font-size:2.4rem;">Portfolio</h1>
+      <h1>Portfolio</h1>
     </div>
   </div>
-
   <div class="portfolio-wrapper">
-    <div class="ph-note">Placeholder thumbnails shown — replace with your actual project images and video links as you gather your files.</div>
-
+    <div class="ph-note">Placeholder thumbnails shown — replace with your actual images and video links as you gather your files.</div>
     <div class="filter-bar">
       <button class="f-btn active" onclick="filterCards('all',this)">All work</button>
       <button class="f-btn" onclick="filterCards('video',this)">Audiovisual</button>
       <button class="f-btn" onclick="filterCards('graphic',this)">Graphic design</button>
     </div>
-
-    <!-- SHOWREEL FEATURE -->
     <div class="video-feature-card" data-cat="video">
       <div class="video-embed"><iframe src="https://www.youtube.com/embed/8AWqPpxKdP4" allowfullscreen></iframe></div>
       <div class="video-feature-info">
@@ -476,137 +329,30 @@ section.active { display:block; }
         <span class="vf-badge">Featured reel</span>
       </div>
     </div>
-
-    <!-- MASONRY -->
     <div class="masonry" id="masonry">
-
-      <div class="m-card" data-cat="video">
-        <div class="m-thumb tall dk1">
-          <div class="geo-thumb-corner"></div>
-          <div class="play-ring"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type">Video</span>
-        </div>
-        <div class="m-body"><h3>Concert & live event production</h3><p>Audiovisual production and editing for large-scale concerts and live shows</p><p class="m-client">OCESA · Star Production</p></div>
-      </div>
-
-      <div class="m-card" data-cat="graphic">
-        <div class="m-thumb med lt2">
-          <div class="geo-thumb-corner dark"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type on-lt">Campaign</span>
-        </div>
-        <div class="m-body"><h3>Full promotions campaign</h3><p>End-to-end assets for prize draw campaigns — TV, radio, print, digital and POS</p><p class="m-client">Pegasica · Picasi</p></div>
-      </div>
-
-      <div class="m-card" data-cat="video">
-        <div class="m-thumb med dk2">
-          <div class="geo-thumb-corner"></div>
-          <div class="play-ring"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type">TV production</span>
-        </div>
-        <div class="m-body"><h3>Commercial TV advertising</h3><p>Pre-production, production and post-production of broadcast advertising spots</p><p class="m-client">Telecable</p></div>
-      </div>
-
-      <div class="m-card" data-cat="graphic">
-        <div class="m-thumb short lt3">
-          <div class="geo-thumb-corner dark"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type on-lt">Print</span>
-        </div>
-        <div class="m-body"><h3>Flyers, brochures & posters</h3><p>Print and digital materials following brand guidelines</p><p class="m-client">Harcourts Cooper & Co</p></div>
-      </div>
-
-      <div class="m-card" data-cat="video">
-        <div class="m-thumb tall dk3">
-          <div class="geo-thumb-corner"></div>
-          <div class="play-ring"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type">Motion graphics</span>
-        </div>
-        <div class="m-body"><h3>Motion graphics — brand campaigns</h3><p>After Effects animations for social media and promotional content</p><p class="m-client">Harcourts Cooper & Co</p></div>
-      </div>
-
-      <div class="m-card" data-cat="graphic">
-        <div class="m-thumb med lt1">
-          <div class="geo-thumb-corner dark"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type on-lt">Branding</span>
-        </div>
-        <div class="m-body"><h3>Logo & menu design</h3><p>Brand identity and menu design for food truck</p><p class="m-client">Personal project</p></div>
-      </div>
-
-      <div class="m-card" data-cat="video">
-        <div class="m-thumb short dk1">
-          <div class="geo-thumb-corner"></div>
-          <div class="play-ring"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type">Reels & Stories</span>
-        </div>
-        <div class="m-body"><h3>Instagram Reels & Stories</h3><p>Short-form vertical video content for social media channels</p><p class="m-client">Harcourts Cooper & Co</p></div>
-      </div>
-
-      <div class="m-card" data-cat="graphic">
-        <div class="m-thumb short lt4">
-          <div class="geo-thumb-corner dark"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type on-lt">Social media</span>
-        </div>
-        <div class="m-body"><h3>Social media content</h3><p>Branded posts, graphics and stories for Instagram and Facebook</p><p class="m-client">Harcourts · Pegasica</p></div>
-      </div>
-
-      <div class="m-card" data-cat="video">
-        <div class="m-thumb med dk4">
-          <div class="geo-thumb-corner"></div>
-          <div class="play-ring"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type">Ad spot</span>
-        </div>
-        <div class="m-body"><h3>YouTube & TV ad spots</h3><p>Video advertising for prize draw and sweepstakes campaigns</p><p class="m-client">Pegasica · Picasi</p></div>
-      </div>
-
-      <div class="m-card" data-cat="graphic">
-        <div class="m-thumb med lt3">
-          <div class="geo-thumb-corner dark"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type on-lt">Banners</span>
-        </div>
-        <div class="m-body"><h3>Digital & print banners</h3><p>Advertising banners for digital platforms, TV and point of sale</p><p class="m-client">Pegasica · Picasi</p></div>
-      </div>
-
-      <div class="m-card" data-cat="video">
-        <div class="m-thumb short dk2">
-          <div class="geo-thumb-corner"></div>
-          <div class="play-ring"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type">Photography</span>
-        </div>
-        <div class="m-body"><h3>Event photography</h3><p>Photography for marketing materials and brand activations</p><p class="m-client">Harcourts · Gatorade · OCESA</p></div>
-      </div>
-
-      <div class="m-card" data-cat="graphic">
-        <div class="m-thumb short lt2">
-          <div class="geo-thumb-corner dark"></div>
-          <div class="geo-thumb-line"></div>
-          <span class="m-type on-lt">Accreditation</span>
-        </div>
-        <div class="m-body"><h3>Event accreditation design</h3><p>Design and control of accreditation systems for large-scale events</p><p class="m-client">OCESA</p></div>
-      </div>
-
+      <div class="m-card" data-cat="video"><div class="m-thumb tall dk1"><div class="geo-thumb-corner"></div><div class="play-ring"></div><div class="geo-thumb-line"></div><span class="m-type">Video</span></div><div class="m-body"><h3>Concert & live event production</h3><p>Audiovisual production and editing for large-scale concerts</p><p class="m-client">OCESA</p></div></div>
+      <div class="m-card" data-cat="graphic"><div class="m-thumb med lt2"><div class="geo-thumb-corner dark"></div><div class="geo-thumb-line"></div><span class="m-type on-lt">Campaign</span></div><div class="m-body"><h3>Full promotions campaign</h3><p>End-to-end assets — TV, radio, print, digital and POS</p><p class="m-client">Pegasica · Picasi</p></div></div>
+      <div class="m-card" data-cat="video"><div class="m-thumb med dk2"><div class="geo-thumb-corner"></div><div class="play-ring"></div><div class="geo-thumb-line"></div><span class="m-type">TV production</span></div><div class="m-body"><h3>Commercial TV advertising</h3><p>Pre-production, production and post-production of broadcast spots</p><p class="m-client">Telecable</p></div></div>
+      <div class="m-card" data-cat="graphic"><div class="m-thumb short lt3"><div class="geo-thumb-corner dark"></div><div class="geo-thumb-line"></div><span class="m-type on-lt">Print</span></div><div class="m-body"><h3>Flyers, brochures & posters</h3><p>Print and digital materials following brand guidelines</p><p class="m-client">Harcourts Cooper & Co</p></div></div>
+      <div class="m-card" data-cat="video"><div class="m-thumb tall dk3"><div class="geo-thumb-corner"></div><div class="play-ring"></div><div class="geo-thumb-line"></div><span class="m-type">Motion graphics</span></div><div class="m-body"><h3>Motion graphics — brand campaigns</h3><p>After Effects animations for social media and promotions</p><p class="m-client">Harcourts Cooper & Co</p></div></div>
+      <div class="m-card" data-cat="graphic"><div class="m-thumb med lt1"><div class="geo-thumb-corner dark"></div><div class="geo-thumb-line"></div><span class="m-type on-lt">Branding</span></div><div class="m-body"><h3>Logo & menu design</h3><p>Brand identity and menu design for food truck</p><p class="m-client">Personal project</p></div></div>
+      <div class="m-card" data-cat="video"><div class="m-thumb short dk1"><div class="geo-thumb-corner"></div><div class="play-ring"></div><div class="geo-thumb-line"></div><span class="m-type">Reels & Stories</span></div><div class="m-body"><h3>Instagram Reels & Stories</h3><p>Short-form vertical video for social media channels</p><p class="m-client">Harcourts Cooper & Co</p></div></div>
+      <div class="m-card" data-cat="graphic"><div class="m-thumb short lt4"><div class="geo-thumb-corner dark"></div><div class="geo-thumb-line"></div><span class="m-type on-lt">Social media</span></div><div class="m-body"><h3>Social media content</h3><p>Branded posts, graphics and stories for Instagram and Facebook</p><p class="m-client">Harcourts · Pegasica</p></div></div>
+      <div class="m-card" data-cat="video"><div class="m-thumb med dk4"><div class="geo-thumb-corner"></div><div class="play-ring"></div><div class="geo-thumb-line"></div><span class="m-type">Ad spot</span></div><div class="m-body"><h3>YouTube & TV ad spots</h3><p>Video advertising for prize draw campaigns</p><p class="m-client">Pegasica · Picasi</p></div></div>
+      <div class="m-card" data-cat="graphic"><div class="m-thumb med lt3"><div class="geo-thumb-corner dark"></div><div class="geo-thumb-line"></div><span class="m-type on-lt">Banners</span></div><div class="m-body"><h3>Digital & print banners</h3><p>Advertising banners for digital platforms, TV and point of sale</p><p class="m-client">Pegasica · Picasi</p></div></div>
+      <div class="m-card" data-cat="video"><div class="m-thumb short dk2"><div class="geo-thumb-corner"></div><div class="play-ring"></div><div class="geo-thumb-line"></div><span class="m-type">Photography</span></div><div class="m-body"><h3>Event photography</h3><p>Photography for marketing materials and brand activations</p><p class="m-client">Harcourts · Gatorade · OCESA</p></div></div>
+      <div class="m-card" data-cat="graphic"><div class="m-thumb short lt2"><div class="geo-thumb-corner dark"></div><div class="geo-thumb-line"></div><span class="m-type on-lt">Accreditation</span></div><div class="m-body"><h3>Event accreditation design</h3><p>Design and control of accreditation systems for large-scale events</p><p class="m-client">OCESA</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- EXPERIENCE -->
+<!-- ══════════════ EXPERIENCE ══════════════ -->
 <section id="experience">
-  <div class="hero" style="padding:3rem 4rem 2.5rem;">
-    <div class="geo-block"></div>
-    <div class="geo-circle"></div>
-    <div class="geo-line1"></div>
+  <div class="hero-mini">
+    <div class="geo-block"></div><div class="geo-circle"></div><div class="geo-line1"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Career history</p>
-      <h1 style="font-size:2.4rem;">Experience</h1>
+      <h1>Experience</h1>
     </div>
   </div>
   <div class="exp-wrapper">
@@ -619,13 +365,13 @@ section.active { display:block; }
             <span class="exp-dates">Nov 2020 – Jan 2024</span>
           </div>
           <div class="exp-card-body">
-            <p>Produced video, motion graphics, and print content for a leading North Shore real estate brand, partnering with agents and community teams to develop campaigns for sponsorship events and local initiatives.</p>
+            <p>Managed marketing operations and content production for the Community Relationships office, supporting 17 offices across the North Shore — designing promotional assets, executing events spanning school, sports, cultural, social, arts, and charity initiatives, and delivering photo and video content that strengthened Harcourts' local brand presence. Contributed to the team's recognition with the REINZ Award.</p>
             <ul>
-              <li>Filmed and edited social media and event videos using Premiere Pro and After Effects</li>
-              <li>Designed flyers, brochures, and posters in Canva and Photoshop following brand guidelines</li>
-              <li>Planned and executed community and sponsorship events end-to-end</li>
-              <li>Captured photography for marketing materials and charity auction campaigns</li>
-              <li>Created Instagram Reels, Stories, and social media posts for brand channels</li>
+              <li><strong>Event logistics & operations:</strong> Managed end-to-end logistics for community and sponsorship events — material delivery, onsite setup and teardown, and coordination with agents and venues</li>
+              <li><strong>Print & digital design:</strong> Designed flyers, brochures, posters, and branded merchandise materials following brand guidelines (Canva, Photoshop, Illustrator)</li>
+              <li><strong>Photo & video content:</strong> Captured photography and filmed events for promotional use; edited social media content, Instagram Reels, and Stories using Premiere Pro and After Effects</li>
+              <li><strong>Agent support:</strong> Provided agents with branded merchandise and print materials for their own community events, maintaining brand consistency</li>
+              <li><strong>Brand visibility:</strong> Ensured consistent, professional brand presence across all community touchpoints — from signage to giveaways to digital coverage</li>
             </ul>
           </div>
         </div>
@@ -634,17 +380,16 @@ section.active { display:block; }
       <div class="exp-item">
         <div class="exp-card">
           <div class="exp-card-header">
-            <div><h3>Communications Coordinator</h3><p class="company">Pegasica · Promotions Agency · Mexico</p></div>
+            <div><h3>Communications Coordinator — Marketing & Campaigns</h3><p class="company">Pegasica · Promotions Agency · Mexico</p></div>
             <span class="exp-dates">Jun 2017 – May 2018</span>
           </div>
           <div class="exp-card-body">
-            <p>Solely responsible for conceptualising, designing, and executing multi-channel campaigns for a consumer promotions agency specialising in prize draws and sweepstakes.</p>
+            <p>Solely responsible for the communications and marketing function at a consumer promotions agency specialising in prize draws and sweepstakes. Reported to the General Manager and collaborated with external agencies and suppliers to execute two major campaigns per year — from concept to final delivery.</p>
             <ul>
-              <li>Planned and managed advertising campaigns across TV, radio, print, and point of sale</li>
-              <li>Produced and placed YouTube Ads to extend campaign reach into digital channels</li>
-              <li>Designed all campaign materials independently — from concept to final artwork</li>
-              <li>Organised and executed promotional events from concept to on-site delivery</li>
-              <li>Managed departmental budget and media placement across all channels</li>
+              <li><strong>End-to-end campaign ownership:</strong> Independently managed the full creative and production process — brand image, advertising materials, TV and radio spots, POS signage, and event publicity</li>
+              <li><strong>Budget optimisation:</strong> Negotiated directly with suppliers to maximise media impact with minimal resources — no dedicated budget</li>
+              <li><strong>External coordination:</strong> Briefed and managed production houses, printers, and media outlets to meet campaign requirements and deadlines</li>
+              <li><strong>Live event execution:</strong> Participated in operations for live televised draws, following strict protocols involving government authorities and the public</li>
             </ul>
           </div>
         </div>
@@ -653,16 +398,17 @@ section.active { display:block; }
       <div class="exp-item">
         <div class="exp-card">
           <div class="exp-card-header">
-            <div><h3>Event Organisation</h3><p class="company">OCESA · Live Events Promoter · Mexico</p></div>
+            <div><h3>Venue Operations Support — Live Events</h3><p class="company">OCESA · Live Events Promoter · Mexico</p></div>
             <span class="exp-dates">Oct 2011 – May 2017</span>
           </div>
           <div class="exp-card-body">
-            <p>Coordinated media and sponsors for one of Mexico's largest live entertainment companies, managing large-scale concerts and events from production through execution.</p>
+            <p>Formed part of the direct support team for the Venue Operations Manager at one of Mexico's largest live entertainment promoters — working across concerts and events with capacities of 12,000+ attendees, approximately 20 events per year.</p>
             <ul>
-              <li>Coordinated media relationships and sponsor logistics across major live events</li>
-              <li>Supervised suppliers and service providers during assembly and event execution</li>
-              <li>Produced and edited audiovisual material for promotional and documentary purposes</li>
-              <li>Designed publicity materials and managed accreditation systems for large-scale shows</li>
+              <li><strong>Marketing & promoter support:</strong> Assisted the promoter's marketing and publicity team with on-site needs — branding placement, signage coordination, press support, and in-venue activations</li>
+              <li><strong>Accreditation management:</strong> Managed the full accreditation system for media, sponsors, VIPs, venue staff, and promoter teams across all events</li>
+              <li><strong>Signage & venue branding:</strong> Coordinated design, production, and installation of signage and promotional materials, adapting rented venues to each event's requirements</li>
+              <li><strong>On-site operations:</strong> Supported the Venue Operations Manager during live events — troubleshooting and coordinating between venue staff and promoter teams</li>
+              <li><strong>Cross-functional coordination:</strong> Collaborated with security, production, and marketing teams to align venue logistics with promoter needs</li>
             </ul>
           </div>
         </div>
@@ -675,9 +421,9 @@ section.active { display:block; }
             <span class="exp-dates">Nov 2010 – Sep 2011</span>
           </div>
           <div class="exp-card-body">
-            <p>Managed the full production cycle of commercial audiovisual advertising for a telecommunications company with its own production unit.</p>
+            <p>Managed the full production cycle of commercial audiovisual advertising for a telecommunications company with its own in-house production unit.</p>
             <ul>
-              <li>Led pre-production, production and post-production of TV advertising spots</li>
+              <li>Led pre-production, production, and post-production of TV advertising spots</li>
               <li>Wrote scripts and coordinated the production team throughout each project</li>
               <li>Handled audio and video editing and delivery of broadcast-ready material</li>
               <li>Managed client relationships and provided ongoing production support</li>
@@ -694,7 +440,7 @@ section.active { display:block; }
           </div>
           <div class="exp-card-body">
             <ul>
-              <li>Hosted and produced weekly cultural radio programme on SJRT</li>
+              <li>Hosted and produced a weekly cultural radio programme on SJRT promoting government programmes and events for youth development</li>
               <li>Wrote content and coordinated production for each broadcast</li>
             </ul>
           </div>
@@ -709,9 +455,8 @@ section.active { display:block; }
           </div>
           <div class="exp-card-body">
             <ul>
-              <li><strong>Star Production</strong> — Production and editing of audiovisual material for concerts; creative proposals and graphic design</li>
-              <li><strong>Vallarta Adventure</strong> — Filmed, edited, and sold audiovisual material of recreational activities for international tourists</li>
-              <li><strong>Gatorade</strong> — Coordinated brand activations at sports competitions; managed logistics for hydration point assemblies and supervised activation teams</li>
+              <li><strong>Vallarta Adventure:</strong> Prepared and operated camera equipment for a range of recreational activities; edited and delivered finished audiovisual material to clients the same day, within tight turnaround windows</li>
+              <li><strong>Gatorade:</strong> Formed part of the brand activation operations team — supporting logistics, delivery and retrieval of promotional materials, and managing setup and teardown of brand presence at sports events</li>
             </ul>
           </div>
         </div>
@@ -721,15 +466,13 @@ section.active { display:block; }
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ══════════════ CONTACT ══════════════ -->
 <section id="contact">
-  <div class="hero" style="padding:3rem 4rem 2.5rem;">
-    <div class="geo-block"></div>
-    <div class="geo-circle"></div>
-    <div class="geo-line1"></div>
+  <div class="hero-mini">
+    <div class="geo-block"></div><div class="geo-circle"></div><div class="geo-line1"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Let's work together</p>
-      <h1 style="font-size:2.4rem;">Get in<br><span>Touch</span></h1>
+      <h1>Get in <span>Touch</span></h1>
     </div>
   </div>
   <div class="contact-wrapper">
@@ -744,33 +487,30 @@ section.active { display:block; }
       </div>
       <div class="c-card">
         <h3>Availability</h3>
-        <p>Currently based in Blenheim, Marlborough, finishing the wine harvest season. Returning to Auckland and available from 10 May 2025.</p>
+        <p>Currently based in the South Island, New Zealand — having explored the region and experienced Marlborough's unique wine-making culture.</p>
         <p style="margin-top:0.6rem;">New Zealand Permanent Resident — full working rights, no restrictions.</p>
-        <span class="avail">Available from 10 May 2025</span>
+        <p style="margin-top:0.6rem;">Open to opportunities nationwide, with flexibility to relocate as needed.</p>
+        <span class="avail">Open to Relocate · NZ PR</span>
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  function showSection(id, el) {
-    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+  function showSection(id,el){
+    document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-    if(el) el.classList.add('active');
+    if(el)el.classList.add('active');
+    window.scrollTo(0,0);
   }
-
-  function filterCards(cat, el) {
-    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+  function filterCards(cat,el){
+    document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));
     el.classList.add('active');
-    const feature = document.querySelector('.video-feature-card');
-    if(feature) feature.style.display = (cat === 'all' || cat === 'video') ? 'block' : 'none';
-    document.querySelectorAll('.m-card').forEach(c => {
-      if(cat === 'all' || c.dataset.cat === cat) {
-        c.style.display = 'block';
-      } else {
-        c.style.display = 'none';
-      }
+    const feat=document.querySelector('.video-feature-card');
+    if(feat)feat.style.display=(cat==='all'||cat==='video')?'block':'none';
+    document.querySelectorAll('.m-card').forEach(c=>{
+      c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
     });
   }
 </script>
