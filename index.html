@@ -497,7 +497,15 @@ section.active{display:block;}
 </section>
 
 <script>
+  function stopAllVideos(){
+    document.querySelectorAll('iframe').forEach(function(iframe){
+      const src=iframe.src;
+      iframe.src='';
+      iframe.src=src;
+    });
+  }
   function showSection(id,el){
+    stopAllVideos();
     document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
     document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
     document.getElementById(id).classList.add('active');
@@ -505,6 +513,7 @@ section.active{display:block;}
     window.scrollTo(0,0);
   }
   function filterCards(cat,el){
+    stopAllVideos();
     document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('active'));
     el.classList.add('active');
     const feat=document.querySelector('.video-feature-card');
