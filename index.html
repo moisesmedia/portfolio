@@ -534,6 +534,60 @@ section.active{display:block;}
       c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
     });
   }
+<script>
+  // YouTube IFrame API
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(tag);
+
+  var players = [];
+
+  function onYouTubeIframeAPIReady() {
+    document.querySelectorAll('iframe[src*="youtube"]').forEach(function(iframe) {
+      iframe.id = iframe.id || 'yt_' + Math.random().toString(36).substr(2, 9);
+      iframe.src = iframe.src + (iframe.src.includes('?') ? '&' : '?') + 'enablejsapi=1';
+      var p = new YT.Player(iframe.id, {
+        events: {
+          'onStateChange': function(e) {
+            if (e.data === YT.PlayerState.PLAYING) {
+              players.forEach(function(other) {
+                if (other !== e.target) {
+                  try { other.pauseVideo(); } catch(err) {}
+                }
+              });
+            }
+          }
+        }
+      });
+      players.push(p);
+    });
+  }
+
+  function stopAllVideos() {
+    players.forEach(function(p) {
+      try { p.pauseVideo(); } catch(err) {}
+    });
+  }
+
+  function showSection(id, el) {
+    stopAllVideos();
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if (el) el.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function filterCards(cat, el) {
+    stopAllVideos();
+    document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    const feat = document.querySelector('.video-feature-card');
+    if (feat) feat.style.display = (cat === 'all' || cat === 'video') ? 'block' : 'none';
+    document.querySelectorAll('.m-card').forEach(c => {
+      c.style.display = (cat === 'all' || c.dataset.cat === cat) ? 'block' : 'none';
+    });
+  }
 </script>
 </body>
 </html>
