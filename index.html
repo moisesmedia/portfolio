@@ -535,37 +535,11 @@ section.active{display:block;}
     });
   }
 <script>
-  // YouTube IFrame API
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  document.head.appendChild(tag);
-
-  var players = [];
-
-  function onYouTubeIframeAPIReady() {
-    document.querySelectorAll('iframe[src*="youtube"]').forEach(function(iframe) {
-      iframe.id = iframe.id || 'yt_' + Math.random().toString(36).substr(2, 9);
-      iframe.src = iframe.src + (iframe.src.includes('?') ? '&' : '?') + 'enablejsapi=1';
-      var p = new YT.Player(iframe.id, {
-        events: {
-          'onStateChange': function(e) {
-            if (e.data === YT.PlayerState.PLAYING) {
-              players.forEach(function(other) {
-                if (other !== e.target) {
-                  try { other.pauseVideo(); } catch(err) {}
-                }
-              });
-            }
-          }
-        }
-      });
-      players.push(p);
-    });
-  }
-
   function stopAllVideos() {
-    players.forEach(function(p) {
-      try { p.pauseVideo(); } catch(err) {}
+    document.querySelectorAll('iframe').forEach(function(iframe) {
+      var src = iframe.src;
+      iframe.src = '';
+      iframe.src = src;
     });
   }
 
