@@ -614,9 +614,36 @@ section.active{display:block;}
 </div>
 
 <script>
+  var ytPlayers = [];
+
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScript = document.getElementsByTagName('script')[0];
+  firstScript.parentNode.insertBefore(tag, firstScript);
+
+  function onYouTubeIframeAPIReady(){
+    document.querySelectorAll('iframe[src*="youtube"]').forEach(function(f, i){
+      f.id = f.id || ('ytframe_' + i);
+      var p = new YT.Player(f.id, {
+        events:{
+          'onStateChange': function(e){
+            if(e.data === YT.PlayerState.PLAYING){
+              ytPlayers.forEach(function(other){
+                if(other !== e.target){
+                  try{ other.pauseVideo(); }catch(err){}
+                }
+              });
+            }
+          }
+        }
+      });
+      ytPlayers.push(p);
+    });
+  }
+
   function stopAllVideos(){
-    document.querySelectorAll('iframe').forEach(function(f){
-      f.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}','*');
+    ytPlayers.forEach(function(p){
+      try{ p.pauseVideo(); }catch(err){}
     });
   }
 
